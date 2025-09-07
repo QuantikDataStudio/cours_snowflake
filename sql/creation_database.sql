@@ -1,0 +1,1 @@
+CREATE IF NOT EXISTS DATABASE health_app;
