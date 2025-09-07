@@ -1,1 +1,0 @@
-CREATE IF NOT EXISTS health_app.raw;

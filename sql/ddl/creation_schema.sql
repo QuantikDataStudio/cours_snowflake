@@ -1,0 +1,1 @@
+CREATE OR ALTER health_app.raw;
