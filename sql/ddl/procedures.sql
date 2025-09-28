@@ -58,3 +58,15 @@ BEGIN
     return :sql_row_count_var;
 END;
 $$;
+
+
+-- Procédure pour identifier les nouvelles données
+CREATE OR REPLACE PROCEDURE raw.identify_new_data(table_name STRING, process_name STRING)
+RETURNS STRING
+LANGUAGE SQL
+EXECUTE AS CALLER
+AS
+$$
+    INSERT INTO raw.data_to_process (event_timestamp,process_name,process_id,message)
+    (SELECT event_timestamp, process_name, process_id, message FROM raw.raw_events_stream);
+$$;
